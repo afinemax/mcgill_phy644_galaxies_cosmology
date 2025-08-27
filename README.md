@@ -28,7 +28,7 @@ This repository is **not a solution bank**. If you are enrolled in PHY644:
 
 ## License & Disclaimer
 These notes and solutions are **unofficial** and may contain errors. Use them at your own discretion and always verify against lecture material, textbooks, and peer-reviewed sources.
-This repository is distributed under the **Academic Use License (AUL)** — see [LICENSE.md](LICENSE.md) for details.
+This repository is distributed under the **Academic Use License (AUL)** — see [LICENSE.md](https://github.com/afinemax/mcgill_phy644_galaxies_cosmology/blob/main/LICENSE.MD) for details.
 
 ---
 
