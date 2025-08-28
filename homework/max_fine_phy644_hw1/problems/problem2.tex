@@ -1,0 +1,65 @@
+\section*{Problem 2: The Plummer Potential}
+
+The Plummer gravitational potential is:
+\begin{equation}
+    \Phi(r) = \frac{-GM}{({r^2 + r_0^2})^{1/2}}
+\end{equation}
+where \(r\) is the distance from the center, \(M\) is the total mass of the galaxy cluster, \(r_0\) is the characteristic radius, and \(G\) is Newton's gravitational constant.
+
+
+\subsection*{A.}
+We are asked to derive $\rho(r)$ --- the mass density of the Plummer potential.  My idea here is to use Gauss’s law for gravity in differential form! It looks like this (It's in Griffith's EM):
+
+\begin{equation} \label{eq:gauss_law}
+\nabla \cdot \mathbf{g} = -4 \pi G \rho
+\end{equation}
+
+Recall that $ \mathbf{g}(r) = - \nabla \Phi(r) $, putting this into Equation \ref{eq:gauss_law} we have:
+
+\begin{equation}\label{eq:laplace_with_G}
+\nabla \cdot (- \nabla \Phi) = -4 \pi G \rho \quad \Rightarrow \quad \nabla^2 \Phi = 4 \pi G \rho
+\end{equation}
+
+Recall for a spherically symmetric potential, the Laplacian in spherical coordinates is:
+\begin{equation} \label{eq:laplace_with_phi}
+\nabla^2 \Phi = \frac{1}{r^2} \frac{d}{dr} \left( r^2 \frac{d\Phi}{dr} \right)
+\end{equation}
+
+Now we just need to take a few derivatives and rearrange! I wonder if there is a faster way. Anyway lets start with $\frac{d\Phi}{dr}$:
+
+\begin{equation}
+\frac{d\Phi}{dr} = \frac{GM r}{(r^2 + r_0^2)^{3/2}}
+\end{equation}
+
+The term in () in Equation \ref{eq:laplace_with_phi} is then:
+
+\begin{equation}
+\Rightarrow \frac{GM r^3}{(r^2 + r_0^2)^{3/2}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%% New here
+
+Taking the next derivative we get:
+\begin{equation}
+\Rightarrow GM\frac{3 r^2 r_0^2}{(r^2 + r_0^2)^{5/2}}
+\end{equation}
+
+Tossing in the factor of $1/r^2$, the Laplacian aka Equation \ref{eq:laplace_with_phi} is:
+\begin{equation}
+\nabla^2 \Phi = \frac{3 GM r_0^2}{(r^2 + r_0^2)^{5/2}}
+\end{equation}
+
+
+Finally, using Equation \ref{eq:laplace_with_G}, we solve for $\rho(r)$ -  the mass density profile of the Plummer potential.
+\begin{equation}
+\boxed{
+\rho(r) = \frac{3 M r_0^2}{4 \pi (r^2 + r_0^2)^{5/2}}
+}
+\end{equation}
+
+Factoring the $r_0$ we get the form from the problem set.
+\begin{equation}
+\boxed{
+\rho(r) = \frac{3 M}{4 \pi r_0^3 \left( 1 + \left(\frac{r}{r_0}\right)^2 \right)^{5/2}}
+}
+\end{equation}
