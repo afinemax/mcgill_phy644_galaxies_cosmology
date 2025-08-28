@@ -7,9 +7,9 @@ The primary purpose of this repo is for my own study and organization. I’m mak
 ---
 
 ## Contents
-- **Notes/** — Lecture notes, textbook summaries, and key derivations.
-- **Homework/** — My written-up solutions and working code (if applicable).
-- **Resources/** — Helpful references, links, and reading material.
+- **notes/** — Lecture notes, textbook summaries, and key derivations.
+- **homework/** — My written-up solutions and working code (if applicable).
+- **resources/** — Helpful references, links, and reading material.
 
 ---
 
