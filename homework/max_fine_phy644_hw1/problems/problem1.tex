@@ -41,9 +41,28 @@ We estimate a photometric redshift using relative fluxes (magnitudes) from diffe
 \subsection*{B.}
 This time we are asked to look at Figure 1 of the homework (not reproduced), and and reflect on what redshifts can be most cleanly identified with the Lyman dropout technique before it gets confused with absorption from the IGM.  
 
-Using the filter response, we can eyeball when the Lyman break $z$, and IGM absorption $z$, at the egde of the filters.  Using this I think, below $z \sim 6$, photometric $z$ are alright because the Lyman break moves through the optical bands.  
+Using the Lyman break at $\lambda_0 = 1216 \, \text{\AA}$, and eyeballing the half max response of the filters in the figure, the redshift ranges at which galaxies can be most cleanly identified with the Lyman Break technique are:
 
-Beyond $z \sim 6-7$, it starts to get hard / degeneracy with IGM absorption. (Excluding effects of dusty galaxies).
+\[
+\begin{aligned}
+\text{U-dropouts:} & \quad z \approx 1.47 \;-\; 2.29 \\
+\text{B-dropouts:} & \quad z \approx 3.11 \quad \text{(B and V overlap at $\sim$ 5000 \AA)} \\
+\text{V-dropouts:} & \quad z \approx 4.76
+\end{aligned}
+\]
+
+The idea being the ``spectrum'' is in one image but not the next. In practice, with only the $U, B, V, I$ filters, you can use the dropout technique up to 
+\[
+z \sim 4.76 \quad (\text{V} \to \text{I dropout}).
+\]
+
+The Lyman break remains inside the $I$ band until 
+\[
+z_{\max} \approx \frac{9000}{1216} - 1 \approx 6.40,
+\]
+but a redder filter than $I$ would be required to know where the dropout happens. 
+
+
 
 
 
