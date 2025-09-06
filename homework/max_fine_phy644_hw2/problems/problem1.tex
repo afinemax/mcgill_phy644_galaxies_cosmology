@@ -1,0 +1,66 @@
+
+
+\section*{Problem 1: Free-fall Time}
+
+
+We are asked to derive the true free fall time $t_{ff}$ of presser-less dust ball of uniform density $\rho$ collapsing.
+
+The total mass of the sphere is :
+\begin{equation} \label{eq:mass_enclosed}
+    M = \frac{4}{3}\pi \rho r_0^3
+\end{equation}
+
+where $M$ is the total mass, and $r_0$ is the initial radius (max radius). The  $t_{ff}$ is the time it takes for a test mass on the surface to fall to the centre. 
+
+I am assuming that energy conservation holds, for a test mass at the edge of the surface
+\begin{equation}
+    E = \frac{1}{2}v_0^2 - \frac{GM}{r_0} = \frac{1}{2}v(r)^2 - \frac{GM}{r} 
+\end{equation}
+where $E$ is a constant, and this is the per unit mass energy. We take $v_0$ to be 0. 
+
+We can rearrange for $v(r)$:
+
+\begin{equation}
+    v(r)^2 = 2GM(\frac{1}{r} - \frac{1}{r_0}) 
+\end{equation}
+
+now we have a first order differential equation: 
+\begin{equation}
+    \frac{dr}{dt} = -[2GM(\frac{1}{r} - \frac{1}{r_0})]^{0.5}
+\end{equation}
+with the same initial conditions, the $-$ comes from falling inwards. 
+
+\begin{equation}
+     -[2GM(\frac{1}{r} - \frac{1}{r_0})]^{-0.5} dr = dt
+\end{equation}
+
+The integral bounds are from $r_0$ to $0$ on the left hand side and from $ 0$ to $t_{ff}$ on the right hand side
+
+\begin{equation}
+    \int_{r_0}^{0} 
+    -\left[2GM\!\left(\frac{1}{r}-\frac{1}{r_0}\right)\right]^{-1/2} dr 
+    = \int_{0}^{t_{ff}} dt
+\end{equation}
+
+\begin{equation}
+    \int_{0}^{r_0} 
+    \left[2GM\!\left(\frac{1}{r}-\frac{1}{r_0}\right)\right]^{-1/2} dr 
+    = t_{ff}
+\end{equation}
+
+\sout{Now we use our integral table aka wolfram alpha (it looks like a $u$ and then trig sub).}
+
+Before we can use an integral table, we need to simplify more, let $u = \frac{r}{r_0}$, $du = \frac{1}{r_0}dr$. 
+
+\begin{equation}
+    \int_{0}^{1} 
+    [2GM(\frac{1-u}{ur_0})]^{-1/2} dr 
+    = t_{ff}
+\end{equation}
+
+
+
+
+
+
+
