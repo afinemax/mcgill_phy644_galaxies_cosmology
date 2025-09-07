@@ -1,0 +1,159 @@
+\section*{Problem 3: Singular Isothermal Spheres}
+
+Suppose that the probability distribution of velocities of particles (e.g., stars) in a galaxy are given by a
+Maxwell-Boltzmann distribution, where the velocities are Gaussian:
+
+
+\begin{equation} \label{eq:maxwell-boltzmann_dist}
+p(\mathbf{v}) = \frac{1}{(2 \pi \sigma^2)^{3/2}} 
+\exp\left( -\frac{|\mathbf{v}|^2}{2 \sigma^2} \right),
+\end{equation}
+Here, $\mathbf{v}$ represents the 3D velocity vector 
+$(v_x, v_y, v_z)$, and $|\mathbf{v}|$ is its magnitude $v$.
+
+
+\subsection*{Problem 3A:}
+We are asked to show that the standard deviation of Equation \ref{eq:maxwell-boltzmann_dist} is $\sigma$. 
+
+The symmetrical 3D Gaussian factorizes:
+\begin{equation}
+p(\mathbf{v}) = \frac{1}{(2 \pi \sigma^2)^{3/2}} 
+\exp\left( -\frac{{v_x}^2 + {v_y}^2 + {v_z}^2}{2 \sigma^2} \right),
+\end{equation}
+
+In any single dimension the Maxwell-Boltsman equation is therefor: 
+
+\begin{equation}
+p({v}) = \frac{1}{(2 \pi \sigma^2)^{3/2}} 
+\exp\left( -\frac{{v}^2 }{2 \sigma^2} \right),
+\end{equation}
+
+The variance is defined as $\mathrm{Var}(v) = \mathbb{E}[v^2] - (\mathbb{E}[v])^2$. (Variance is the square of the STD). In our cause $\mathbb{E}[v] = 0$ due to symmetry. 
+
+$\mathbb{E}[x^2]$ is given by:
+
+\begin{equation}
+    \mathbb{E}[v^2] =
+\int_{-\infty}^{\infty} v^2p(v)dv %e^{-x^2} \, dx = \sqrt{\pi}
+\end{equation}
+
+Substituting in our $p(v$
+\begin{equation}
+    \mathbb{E}[v^2] =
+\int_{-\infty}^{\infty} v^2\frac{1}{(2 \pi \sigma^2)^{3/2}} 
+\exp\left( -\frac{{v}^2 }{2 \sigma^2} \right)dv %e^{-x^2} \, dx = \sqrt{\pi}
+\end{equation}
+
+
+Integrals of this type are known as Gaussians, and their solution is well known. 
+
+\begin{equation}
+    \int_{-\infty}^{\infty} x^2 e^{-a x^2} \, dx = \frac{\sqrt{\pi}}{2 a^{3/2}}, \quad a > 0
+\end{equation}
+    In our case, $a = \frac{1}{2 \sigma^2}$. 
+
+Clearly this evaluates to $\boxed{\mathbb{E}[v^2]  = \sigma^2}$.
+
+
+\subsection*{Problem 3B:}
+Write down a differential equation for hydrostatic equilibrium of a spherically symmetric system in terms of the radial coordinate $r$, the density $\rho$ and pressure $P$ (both of which can be functions of $r$), $G$, and $M_r$ (the total mass enclosed internal to radius $r$).
+
+
+Hydrostatic equilibrium follows:
+\begin{equation} \label{eq:hydrostatic}
+    \boxed{\frac{dP}{dr} = -\rho(r) \frac{GM(r)}{r^2}}
+\end{equation}
+where $M$ is the enclosed mass. 
+
+(we are not asked to\textit{ solve} the differential equation, only to write it)
+
+
+\subsection*{Problem 3C:}
+For an isothermal, isotropic velocity distribution the pressure is
+\begin{equation}
+    P = \rho\sigma^2 
+\end{equation}
+
+We are asked now to solve the differential equation :( . Rewriting Equation \ref{eq:hydrostatic}, and using $\frac{dM}{dr} = 4\pi r^2 \rho $, (its easier with the $\ln$ according to some online textbook I found)
+
+\begin{equation}\label{eq:ode_3c}
+    \frac{\sigma^2}{r^2} \frac{d}{dr}(r^2 \frac{d\ln{\rho}}{dr}) = -4\pi G \rho(r)
+\end{equation}
+
+Ansatz for a power-law solution:
+\begin{equation}
+    \rho(r) = \frac{A}{r^n},
+\end{equation}
+$A$ is a constant with appropriate units, and  I require $A>0$, $n>0$.
+
+This means that:
+\begin{equation}
+    \frac{d\ln{\rho}}{dr} = \frac{-n}{r}
+\end{equation}
+
+The full left hand side (LHS) of Equation \ref{eq:ode_3c} is:
+\begin{equation}
+    \mathrm{LHS} = \frac{-\sigma n}{r^2}
+\end{equation}
+
+The equation is now:
+\begin{equation}
+   \frac{-\sigma n}{r^2} = -4\pi G \frac{A}{r^n}
+\end{equation}
+If this holds, then $n=2$, and $A= \frac{\sigma^2}{2\pi G}$.
+
+and therefor:
+\begin{equation} \label{eq:3c_answer}
+    \boxed{\rho(r) = \frac{\sigma^2}{2\pi G} \frac{1}{r^2}},
+\end{equation}
+which is singular at $r=0$. 
+
+\subsection*{Problem 3D:}
+We are asked to find the circular velocity $v_c$ of a test particle placed in a circular orbit. 
+
+
+The circular orbit is given by:
+
+\begin{equation}
+    v_c = \frac{GM(r)}{r}
+\end{equation}
+where $M(r)$ is the enclosed mass. 
+
+$M(r)$ is given by:
+\begin{equation}
+    M(r) = 4 \pi \int_0^r \rho(r) \, {r}^2 \, dr.
+\end{equation}
+
+
+We know $\rho(r)$, its our answer to problem 3C equation \ref{eq:3c_answer}. 
+
+So the circular orbit is given by:
+\begin{equation}
+    v_c = \frac{G}{r} 4 \pi \int_0^r \frac{\sigma^2}{2\pi G} \frac{1}{r^2} \, {r}^2 \, dr
+\end{equation}
+
+This looks scary but its really easy, just with a lot of constants, solving we have the solution. 
+
+\begin{equation}
+    \boxed{v_c = \sigma^2}
+\end{equation}
+Woah! This is actually a super cool result! 
+
+
+\subsection*{Problem 3E:}
+
+A more realistic $\rho(r)$ is Navarro-Frenk-White (NFW) given by:
+\begin{equation}
+    \rho(r) = \frac{\rho_0}{(\frac{r}{r_s})(1 + \frac{r}{r_s})^2}
+\end{equation}
+where $\rho_0$ is an overall normalization and $r_s$ is known as the scale radius.
+
+The question is how does the steepness of the NFW profile compare to that of the singular isothermal sphere at small
+$r$? At large $r$?. This is pretty straight forward comparison of $\frac{r}{r_S}$, and a derivative. 
+
+
+
+
+
+
+

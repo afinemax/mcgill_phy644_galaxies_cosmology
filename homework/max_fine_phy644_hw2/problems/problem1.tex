@@ -12,7 +12,52 @@ The total mass of the sphere is :
 
 where $M$ is the total mass, and $r_0$ is the initial radius (max radius). The  $t_{ff}$ is the time it takes for a test mass on the surface to fall to the centre. 
 
-I am assuming that energy conservation holds, for a test mass at the edge of the surface
+We know from Guass's law for gravity that this problem is the equivalent of asking how long it takes for a test mass to fall into the body it is orbiting. 
+
+From Kepler's 3rd law we know that:
+
+\begin{equation} \label{keplers 3rd law}
+    \frac{P^2}{a^3} = \frac{4\pi^2}{G(M + u)}
+\end{equation}
+
+Where $P$ is the period of the orbit, $a$ is the semi-major axis, $M$ mass of the large body and $u$ is our test mass. $M >> u$, so we can neglect $u$. This is true regardless of the eccentricity ($e$) of the orbit, for the special case of $e=1$ (meaning $a = \frac{1}{2}r_0$), the orbit is a line. The $t_{ff}$ is then interpreted as $\frac{1}{2}P$. Substituting into equation  \ref{keplers 3rd law}:
+
+\begin{equation} 
+    \frac{t_{ff}^2}{r_0^3} = \frac{\pi^2}{8GM}
+\end{equation}
+
+\begin{equation} 
+    t_{ff}^2 = \frac{\pi^2r_0^3}{8GM}
+\end{equation}
+
+
+\begin{equation} 
+    t_{ff} = (\frac{\pi^2r_0^3}{8GM})^{\frac{1}{2}}
+\end{equation}
+
+Now we replace $M$ with equation \ref{eq:mass_enclosed}. 
+\begin{equation} 
+    t_{ff} = (\frac{\pi^2r_0^3}{8G\frac{4}{3}\pi \rho r_0^3})^{\frac{1}{2}}
+\end{equation}
+
+Lots of things cancel!
+
+\begin{equation} 
+    t_{ff} = (\frac{3\pi}{32G\ \rho })^{\frac{1}{2}}
+\end{equation}
+
+We can factor out a $\frac{1}{\sqrt{16}}$
+
+\begin{equation} 
+    \boxed{t_{ff} = \frac{1}{4}\sqrt{\frac{3\pi}{2G\ \rho }}}
+\end{equation}
+
+
+
+
+
+
+The hard way is using conservation of energy, which I will also do. I am assuming that energy conservation holds, for a test mass at the edge of the surface
 \begin{equation}
     E = \frac{1}{2}v_0^2 - \frac{GM}{r_0} = \frac{1}{2}v(r)^2 - \frac{GM}{r} 
 \end{equation}
@@ -54,7 +99,7 @@ Before we can use an integral table, we need to simplify more, let $u = \frac{r}
 
 \begin{equation}
     \int_{0}^{1} 
-    [2GM(\frac{1-u}{ur_0})]^{-1/2} dr 
+    [2GM(\frac{1-u}{ur_0})]^{-1/2} \frac{1}{r_0}du 
     = t_{ff}
 \end{equation}
 
