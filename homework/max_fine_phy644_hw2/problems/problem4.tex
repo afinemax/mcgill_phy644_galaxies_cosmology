@@ -1,0 +1,134 @@
+\section*{Problem 4: Applications of Dynamical Friction}
+
+The Chandrasekhar dynamical friction formula tells us that for a large mass $M$ moving through a sea of smaller
+masses each of mass $m$, the drag force $F_{\mathrm{df}}$ is given by
+\begin{equation} \label{eq:dynamical_friction}
+    F_{\mathrm{df}} = M \frac{dv_M}{dt} 
+    = -16 \pi^2 (\ln \Lambda) G^2 M m n_0 (M+m) 
+    \int_0^{v_M} p(v_m) v_m^2 \, dv_m \, \frac{\mathbf{v}_M}{v_M^3},
+\end{equation}
+where $\ln \Lambda$ is the Coulomb logarithm, $n_0$ is the local density of small masses, $v_m$ their velocity, 
+and $G$ is the gravitational constant.
+
+\subsection*{Problem 4A:}
+
+We are asked to assume singular isothermal system, and that $M>>m$, and to reduce the dynamical friction equation into a given final solution. 
+
+I think a good start is to introduce the $\mathrm{er}f$ function, which is defined as $\mathrm{erf}(z) = \int_{0}^{z} e^{-t^2}\,dt$. We have that integral on the RHS that is giving made $\mathrm{ERF}$ vibes. 
+
+Lets express this part in an $\mathrm{erf}$:
+\begin{equation}
+    \int_{0}^{v_m}  4 \pi p(v_M)v_m^2 \,dv_m
+\end{equation}
+
+Introducing a new variable $u = \frac{v}{\sigma \sqrt{2}}$, we can express this as:
+\begin{equation}
+    \frac{4}{\sqrt{\pi}} \int_{0}^{u_m} u^2e^{-u^2}\,du
+\end{equation}
+
+Almost the error function but we have a $u^2$ still, lets integrate by parts to get it there. 
+
+\begin{equation}
+    \int_{0}^{u_m} u^2e^{-u^2}\,du = \frac{1}{2}\int_{0}^{u_m} e^{-u^2}\,du - \frac{u_m}{2}e^{-u^2} = \frac{\sqrt{\pi}}{2} \mathrm{erf}(u_m) - \frac{u_m}{2}e^{-u^2} 
+\end{equation}
+
+putting it all together now:
+
+\begin{equation}
+    \int_{0}^{v_M} p(v)\,4\pi v^{2}\,dv 
+= \operatorname{erf}\!\left(\frac{v_M}{\sqrt{2}\,\sigma}\right) 
+- \frac{2v_M}{\sqrt{\pi}\,\sqrt{2}\,\sigma}\,
+\exp\!\left(-\frac{v_M^{2}}{2\sigma^{2}}\right).
+\end{equation}
+
+We can make this easier on the eyes by using our result from 3D equation \ref{eq:v_c} $v_c = \sigma \sqrt{2}$:
+
+\begin{equation}
+    \int_{0}^{v_M} p(v)\,4\pi v^{2}\,dv  = \operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}.
+\end{equation}
+oki, now we can insert this into starting equation \ref{eq:dynamical_friction}.
+\begin{equation} 
+    F_{\mathrm{df}} 
+    = -4 \pi (\ln \Lambda) G^2 M m n_0 (M+m) 
+    (\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}) \, \frac{\mathbf{v}_M}{v_M^3},
+\end{equation}
+In our case of $M >>m$, $M +m \approx M$, and $\rho = mn_0$ - which we know!
+
+\begin{equation} 
+    F_{\mathrm{df}} 
+    = -4 \pi (\ln \Lambda) G^2 M^2 m n_0 
+    [\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] \, \frac{\mathbf{v}_M}{v_M^3},
+\end{equation}
+
+Lets sub in $\rho(r)$, and $v_c$
+
+\begin{equation} 
+    \boxed{F_{\mathrm{df}} 
+    = \frac{-4 \pi (\ln \Lambda) G^2 M^2 }{r^2} 
+    [\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] \, \hat{\mathbf{v}}_M} 
+\end{equation}
+
+\subsection*{Problem 4B:}
+Given this,
+derive the following differential equation for the radial distance r between the object and the centre of
+the galaxy:
+
+The angular momentum is given by $L = Mv_cr$, we can take the derivative of this and relate to $rF_{\mathrm{df}}$ the torq $\tau$. 
+
+\begin{equation}
+    \tau = \frac{dL}{dt} = Mr \frac{dv_c}{dt} + Mv_c\frac{dr}{dt}  = Mv_c\frac{dr}{dt}
+\end{equation}
+
+now we just set $Mv_c\frac{dr}{dt} = rF_{\mathrm{df}}$, and 
+
+\begin{equation}\label{eq:4b_solution}
+    \boxed{r\frac{dr}{dt} = -\frac{4\pi GM}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}]}
+\end{equation}
+
+\subsection{Problem 4C:}
+Now we solve this differential equation, this is actually easy as the RHS in our solution for 4B equation \ref{eq:4b_solution} is a constant in time. 
+
+
+\begin{equation}
+    r\frac{dr}{dt} = -\frac{4\pi GM}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] = k
+\end{equation}
+where k is a constant 
+
+\begin{equation}
+    r\frac{dr}{dt}  = k \Rightarrow rdr = kdt
+\end{equation}
+
+Integrating from $r_i$ to $r_f$, and from $0$ to $t$, we have:
+\begin{equation}
+    \frac{1}{2} (r_f^2 - r_i^2) = kt_f
+\end{equation}
+The rest is just algebra to move around.
+
+We can write $r(t)$, and $t_{\mathrm{crash}}$, by solving for $r_f$, and $t$ (with $r_f =0$). 
+
+\begin{equation}
+    r(t) = [(-\frac{8\pi GM}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}])t + r_i]^{\frac{1}{2}}
+\end{equation}
+
+and 
+
+\begin{equation}
+    \boxed{t_{\mathrm{crash}} = \frac{r_i^2v_c}{8\pi G M}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}]^{-1}}
+\end{equation}
+
+This at least has the correct units. 
+
+\subsection*{Problem 4E:}
+
+
+
+
+
+
+
+
+
+
+
+
+

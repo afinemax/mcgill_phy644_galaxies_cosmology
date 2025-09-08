@@ -98,7 +98,7 @@ The full left hand side (LHS) of Equation \ref{eq:ode_3c} is:
 
 The equation is now:
 \begin{equation}
-   \frac{-\sigma n}{r^2} = -4\pi G \frac{A}{r^n}
+   \frac{-\sigma^2 n}{r^2} = -4\pi G \frac{A}{r^n}
 \end{equation}
 If this holds, then $n=2$, and $A= \frac{\sigma^2}{2\pi G}$.
 
@@ -115,7 +115,7 @@ We are asked to find the circular velocity $v_c$ of a test particle placed in a 
 The circular orbit is given by:
 
 \begin{equation}
-    v_c = \frac{GM(r)}{r}
+    v_c^2 = \frac{GM(r)}{r}
 \end{equation}
 where $M(r)$ is the enclosed mass. 
 
@@ -129,13 +129,13 @@ We know $\rho(r)$, its our answer to problem 3C equation \ref{eq:3c_answer}.
 
 So the circular orbit is given by:
 \begin{equation}
-    v_c = \frac{G}{r} 4 \pi \int_0^r \frac{\sigma^2}{2\pi G} \frac{1}{r^2} \, {r}^2 \, dr
+    v_c^2 = \frac{G}{r} 4 \pi \int_0^r \frac{\sigma^2}{2\pi G} \frac{1}{r^2} \, {r}^2 \, dr
 \end{equation}
 
 This looks scary but its really easy, just with a lot of constants, solving we have the solution. 
 
-\begin{equation}
-    \boxed{v_c = \sigma^2}
+\begin{equation} \label{eq:v_c}
+    \boxed{v_c = \sqrt{2}\sigma}
 \end{equation}
 Woah! This is actually a super cool result! 
 
@@ -143,15 +143,26 @@ Woah! This is actually a super cool result!
 \subsection*{Problem 3E:}
 
 A more realistic $\rho(r)$ is Navarro-Frenk-White (NFW) given by:
-\begin{equation}
+\begin{equation} \label{eq:NFW}
     \rho(r) = \frac{\rho_0}{(\frac{r}{r_s})(1 + \frac{r}{r_s})^2}
 \end{equation}
 where $\rho_0$ is an overall normalization and $r_s$ is known as the scale radius.
 
 The question is how does the steepness of the NFW profile compare to that of the singular isothermal sphere at small
-$r$? At large $r$?. This is pretty straight forward comparison of $\frac{r}{r_S}$, and a derivative. 
+$r$? At large $r$?. This is pretty straight forward comparison of $\frac{r}{r_S}$. 
 
+At small $r$, $\frac{r}{r_s} <<1$, and so $(1 + \frac{r}{r_s})^2 \approx 1$ NFW becomes:
 
+\begin{equation}
+     \rho(r) = \frac{\rho_0r_s}{r}
+\end{equation}
+Here the scaling is $\propto \frac{1}{r}$, which is \textbf{shallower} then the isothermal $\frac{1}{r^2}$. 
+
+On the other end, at large $r$, $\frac{r}{r_s} >> 1$ so $(1 + \frac{r}{r_s})^2 \approx \frac{r^2}{r_s^2}.$  So NFW becomes: 
+\begin{equation}
+     \rho(r) = \frac{\rho_0r_s^3}{r^3}
+\end{equation}
+Here the scaling is $\propto \frac{1}{r^3}$, which is \textbf{steeper} then the isothermal $\frac{1}{r^3}$. 
 
 
 
