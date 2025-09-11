@@ -1,0 +1,58 @@
+\section*{Problem 5: Galactic Cannibalism}
+
+\subsection*{Problem 5A:}
+
+Here we are asked to define the feeding zone of typical galaxies by using our solution to problem 4.  We can start by using equation \ref{eq:4_r_t} from problem 4, and using $r_f = 0$, and $t = t_h$, and then solve for $r_i$. 
+
+\begin{equation} 
+    0 = [(-\frac{2GM(\ln \Lambda)}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}])t_h + r_{\mathrm{max}}]^{\frac{1}{2}}
+\end{equation}
+
+
+\begin{equation} \label{eq:5_r_max}
+\boxed{r_\mathrm{max} = -\frac{2GM(\ln \Lambda)}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] t_h}
+\end{equation}
+
+
+\subsection*{Problem 5B:}
+
+Assuming a  mass-luminosity ratio of $\Upsilon = \frac{M}{L}$, we can write $M = \Upsilon L$ .
+
+The given equation is:
+\begin{equation}
+    n(r, L)dL = \Phi(L)(\frac{r_0}{r})^{1.8}dL.
+\end{equation}
+
+we are asked to find $N(L)dL$, this is simply the integral over space $dr$ from 0 to $r_{\mathrm{max}}$
+
+\begin{equation}
+    n(L)\,dL = 4 \pi \Phi(L) \int_{0}^{r_{\mathrm{max}}} \left(\frac{r_0}{r}\right)^{1.8} r^2\, dr \, dL
+\end{equation}
+the factors of $r^2$, and $4 \pi$ comes from integrating over the unit sphere as we are in $3d$
+
+Wolfram alpha says that:
+\begin{equation}
+    \int_0^B (\frac{a}{x})^{1.8}x^2 \, dx = \frac{5}{6}ax^2 (\frac{a}{x})^{4/5}|_0^B = \frac{5}{6} B^3(\frac{a}{B})^{1.8}
+\end{equation}
+
+In our case $B = r_{\mathrm{max}}$, and $a = r_0$. So we have:
+
+\begin{equation}
+     \boxed{n(L)\,dL = \frac{10\pi \Phi(L)}{3} r_{\mathrm{max}}^3(\frac{r_0}{r_{\mathrm{max}}})^{1.8}dL}
+\end{equation}
+
+This is our expression, we can substitute in $r_{\mathrm{max}}$ in terms of $L$ to get:
+
+\begin{equation}
+     \boxed{n(L)\,dL = \frac{10\pi \Phi(L)}{3} {(-\frac{2G\Upsilon L(\ln \Lambda)}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] t_h)}^3(\frac{r_0}{-\frac{2G\Upsilon L(\ln \Lambda)}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] t_h})^{1.8} dL}
+\end{equation}
+
+This looks god-awful. 
+
+\subsection*{Problem 5C:}
+We are asked to  Obtain an expression for the total luminosity that has been consumed, assuming a Schechter form for the luminosity
+function.
+
+
+
+

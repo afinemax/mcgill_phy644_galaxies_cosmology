@@ -1,1 +1,48 @@
-\section*{Problem}
+\section*{Problem 2: Virial Theorem}
+
+We are asked to show that the Virial theorem is:
+
+\begin{equation}
+    U + 2T = \frac{1}{2}\frac{d^2I}{dt^2},
+\end{equation}
+where U is the potential energy, T is the kinetic energy, and I is the moment of inertia $I = \sum_i m_ir_i^2$, where $r$ is the position, and $m$ is the mass of each particle. 
+
+We are given a hint to use $G$:
+
+\begin{equation}
+    G = \sum_i\boldsymbol{P}_i \cdot \boldsymbol{r}_i,
+\end{equation}
+where $\boldsymbol{P}$ is the momentum of each particle. 
+
+
+$G$, and $I$ are related:
+\begin{equation}
+    G = \sum_i\boldsymbol{P}_i \cdot \boldsymbol{r}_i = \sum_im_i \boldsymbol{v}_i \cdot r_i = \frac{1}{2}\sum_im_i \frac{d}{dt}(r_i^2) = \frac{1}{2}\frac{dI}{dt}
+\end{equation}
+
+Now lets take a second $\frac{d}{dt}$ of $G$, we need to find the Left hand side of the following equation and we are done. 
+\begin{equation}
+    \frac{dG}{dt} = \frac{d}{dt}(\frac{1}{2}\frac{dI}{dt}) 
+\end{equation}
+
+Let's start:
+
+\begin{equation}
+    \frac{dG}{dt} = \frac{d}{dt}\sum_im_i \boldsymbol{v}_i \cdot r_i = \sum_i F_i \cdot r_i + \sum_i m_iv_i^2 = \sum_i F_i \cdot r_i  + 2T
+\end{equation}
+
+$\sum_i F_i \cdot r_i = U$ is the definition of potential energy!
+
+therefor:
+\begin{equation}
+    \boxed{U + 2T =  \frac{1}{2}\frac{d^2I}{dt^2} }
+\end{equation}
+
+
+
+
+
+
+
+
+

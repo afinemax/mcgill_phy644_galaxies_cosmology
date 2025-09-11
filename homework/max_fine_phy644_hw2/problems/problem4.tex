@@ -52,7 +52,7 @@ oki, now we can insert this into starting equation \ref{eq:dynamical_friction}.
     = -4 \pi (\ln \Lambda) G^2 M m n_0 (M+m) 
     (\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}) \, \frac{\mathbf{v}_M}{v_M^3},
 \end{equation}
-In our case of $M >>m$, $M +m \approx M$, and $\rho = mn_0$ - which we know!
+In our case of $M >>m$, $M +m \approx M$, and $\rho = mn_0$ which we know! Further for the singular isothermal case, $\rho = \frac{v_c^2}{4\pi Gr^2}$.
 
 \begin{equation} 
     F_{\mathrm{df}} 
@@ -64,7 +64,7 @@ Lets sub in $\rho(r)$, and $v_c$
 
 \begin{equation} 
     \boxed{F_{\mathrm{df}} 
-    = \frac{-4 \pi (\ln \Lambda) G^2 M^2 }{r^2} 
+    = \frac{-(\ln \Lambda) G M^2 }{r^2} 
     [\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] \, \hat{\mathbf{v}}_M} 
 \end{equation}
 
@@ -82,15 +82,15 @@ The angular momentum is given by $L = Mv_cr$, we can take the derivative of this
 now we just set $Mv_c\frac{dr}{dt} = rF_{\mathrm{df}}$, and 
 
 \begin{equation}\label{eq:4b_solution}
-    \boxed{r\frac{dr}{dt} = -\frac{4\pi GM}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}]}
+    \boxed{r\frac{dr}{dt} = -\frac{GM(\ln \Lambda)}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}]}
 \end{equation}
 
-\subsection{Problem 4C:}
+\subsection*{Problem 4C:}
 Now we solve this differential equation, this is actually easy as the RHS in our solution for 4B equation \ref{eq:4b_solution} is a constant in time. 
 
 
 \begin{equation}
-    r\frac{dr}{dt} = -\frac{4\pi GM}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] = k
+    r\frac{dr}{dt} = -\frac{GM(\ln \Lambda)}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}] = k
 \end{equation}
 where k is a constant 
 
@@ -106,14 +106,14 @@ The rest is just algebra to move around.
 
 We can write $r(t)$, and $t_{\mathrm{crash}}$, by solving for $r_f$, and $t$ (with $r_f =0$). 
 
-\begin{equation}
-    r(t) = [(-\frac{8\pi GM}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}])t + r_i]^{\frac{1}{2}}
+\begin{equation} \label{eq:4_r_t}
+    r(t) = [(-\frac{2GM(\ln \Lambda)}{v_c}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}])t + r_i]^{\frac{1}{2}}
 \end{equation}
 
 and 
 
 \begin{equation}
-    \boxed{t_{\mathrm{crash}} = \frac{r_i^2v_c}{8\pi G M}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}]^{-1}}
+    \boxed{t_{\mathrm{crash}} = \frac{r_i^2v_c}{ 2G M(\ln \Lambda)}[\operatorname{erf}(1) - \frac{2}  {\sqrt{\pi}}e^{-1}]^{-1}}
 \end{equation}
 
 This at least has the correct units. 
