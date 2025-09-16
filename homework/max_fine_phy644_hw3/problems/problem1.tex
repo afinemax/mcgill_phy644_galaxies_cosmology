@@ -1,0 +1,146 @@
+\section*{Problem 1: Density of a Self-Gravitating Disk}
+
+Here we consider an infinite disk of stars of identical mass, $m_{*}$, in the xy plane. Assume the stars are in equilibrium
+(their phase space is in steady state).
+
+\subsection{Problem 1A}
+
+
+
+The Jeans equation from class is:
+
+\begin{equation}
+    \partial_t \langle{\vec{v_j}} \rangle + \sum_i \langle{\vec{v_i}} \rangle 
+    \vec{\nabla}_{x, i} \langle{\vec{v_j}} \rangle = - \vec{\nabla}_{x, j} \Phi - \sum_i \frac{\vec{\nabla}_{x, i} (n\sigma_{ij}^2)}{n}
+\end{equation}
+From left to right, we label the terms as - Bulk accretion, velocity sheer, grav force, and pressure. We are asked to find  $n(z)$ in terms of the velocity dispersion in the $\hat{z}$ direction $\sigma_z^2$, $\Phi$, and midplane density $n(0)$.
+    
+Since we are in a steady state, $\partial_t \langle{\vec{v_z}} \rangle = 0$
+
+In $\hat{z}$ we have: 
+\begin{equation}
+    0 = -\frac{d\Phi}{dz} - \frac{1}{n}\frac{d(n\sigma^2_z)}{dz}
+\end{equation}
+
+This looks like a straight forward differential equation, let's attack it. 
+
+\begin{equation}
+    \frac{d(n\sigma^2_z)}{dz} = - n\frac{d\Phi}{dz}
+\end{equation}
+
+
+\begin{equation}
+    \frac{1}{n\sigma^2_z}\frac{d(n\sigma^2_z)}{dz} = -  \frac{1}{\sigma^2_z}\frac{d\Phi}{dz}
+\end{equation}
+
+Switching to $\ln{n \sigma_z^2}$:
+
+\begin{equation}
+    \frac{d\ln{(n\sigma^2_z)}}{dz} = -  \frac{1}{\sigma^2_z}\frac{d\Phi}{dz}
+\end{equation}
+
+Now we integrate both sides from $0$ to $z$. 
+
+\begin{equation}\label{eq:solution_1a}
+    \boxed{\ln(\frac{n(z)\sigma^2_z}{n(0)\sigma^2_0}) = -\int_0^{\infty} \frac{1}{\sigma^2_z} \frac{d\Phi}{dz} dz}
+\end{equation}
+
+We can rearrange and solve for $n(z)$ but it look a bit ugly
+
+\begin{equation}\label{eq:solution_1a_but_better}
+    \boxed{n(z) = n(0) \frac{\sigma^2_z(0)}{\sigma^2_z(z)} \exp(-\int_0^{\infty} \frac{1}{\sigma^2_z} \frac{d\Phi}{dz} dz)}
+\end{equation}
+
+
+\subsection*{Problem 1B}
+In the case of an isothermal gas, and assuming $\sigma_z^2 = C$ a constant in $z$, and setting $\Phi(0) = 0$. 
+
+The right hand side in \ref{eq:solution_1a_but_better} simplifies:
+
+\begin{equation}
+    \boxed{n(z) = n(0) e^{-\frac{\Phi(z)}{\sigma_z^2}}}
+\end{equation}
+
+
+Interpreting this as a thermal equilibrium (Boltzmann) distribution for a ``gas'' of particles of mass  $m_*$, the velocity dispersion plays the role of the thermal kinetic energy per unit mass. The effective temperature $T$ is given by:
+
+\begin{equation}
+    \frac{1}{2}m_*\langle v^2\rangle \sim \frac{1}{2}m_*\sigma^2_z \sim \frac{1}{2}k_bT
+\end{equation}
+
+So the temperature of the gas is given by:
+
+\begin{equation}
+    \boxed{T = \frac{m_* \sigma^2_z}{k_b}}
+\end{equation}
+
+
+\subsection*{Problem 1C}
+Now use the Poisson equation to solve for $\Phi(z)$.
+
+\begin{equation}
+    \nabla^2 \Phi = 4\pi G \rho
+\end{equation}
+
+With our given by $\rho = m_* n(\vec{R})$, since the system is uniform in the $xy$ plane
+
+\begin{equation}
+    \frac{d^2\Phi}{dz^2} = 4\pi Gm_*n(z)
+\end{equation}
+
+Let's attack this!
+
+\begin{equation}
+    \frac{d^2\Phi}{dz^2} = 4\pi Gm_*n_0 e^{-\frac{\Phi(z)}{\sigma_z^2}}
+\end{equation}
+
+Let's redefine the part in the exponent to be:
+\begin{equation}
+    \aleph = \frac{\Phi}{\sigma_z^2}
+\end{equation}
+
+\begin{equation}
+    \frac{d^2\aleph}{dz^2} = \frac{4\pi Gm_*n_0}{\sigma_z^2} e^{- \aleph}
+\end{equation}
+
+We recognize the scale height as $\boxed{h^2 = \frac{\sigma_z^2}{2\pi Gm_*n_0}}$
+
+\begin{equation}
+    \frac{d^2\aleph}{dz^2} = \frac{2}{h^2} e^{- \aleph}
+\end{equation}
+
+\begin{equation}
+    \frac{d^2\aleph}{dz^2}\frac{d\aleph}{dz} = \frac{2}{h^2} e^{- \aleph}\frac{d\aleph}{dz}
+\end{equation}
+
+Integrate:
+\begin{equation} \label{eq:1c_halfway}
+    \frac{1}{2}(\frac{d\aleph}{dz})^2 = -\frac{2}{h^2} e^{- \aleph} +c
+\end{equation}
+
+at $z = 0$, we expect $\frac{d\aleph}{dz} = 0 $ due to symmetry, and we have $\aleph(0) = 0$.
+
+Therefore:
+\begin{equation}
+   0 = -\frac{2}{h^2} +c \Rightarrow c =  \frac{2}{h^2}
+\end{equation}
+
+Throwing back into equation \ref{eq:1c_halfway} we have:
+\begin{equation}
+    \frac{d\aleph}{dz} = \frac{2}{h} \sqrt{1 - e^{-\aleph}}
+\end{equation}
+
+The anti-derivative of this is $\mathrm{sech}$ (from a table).
+
+\begin{equation}
+    \boxed{n(z) = n_0 \mathrm{sech}^2(\frac{z}{2h})}
+\end{equation}
+
+with $\boxed{h^2 = \frac{\sigma_z^2}{2\pi Gm_*n_0}}$
+
+
+
+
+
+
+
