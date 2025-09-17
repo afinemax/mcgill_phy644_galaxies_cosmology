@@ -1,0 +1,137 @@
+
+\section{Problem 2: Spherical Tophat Model}
+
+\subsection*{Problem 2A:}
+
+We are asked to solve this ODE for $\rho = f(t)$:
+\begin{equation}
+    \frac{1}{2}(\frac{dr}{dt})^2  - \frac{GM}{r} = \epsilon
+\end{equation}
+
+with $\epsilon = \frac{E}{m}$, in our universe a good model is that $\epsilon = 0$ --- it has just enough energy to escape. 
+
+
+\begin{equation}
+    \frac{1}{2}(\frac{dr}{dt})^2  - \frac{GM}{r} = 0
+\end{equation}
+
+
+\begin{equation}
+   r (\frac{dr}{dt})^2=  2GM 
+\end{equation}
+
+
+\begin{equation}
+   r^{1/2} \frac{dr}{dt} = (2GM)^{1/2} 
+\end{equation}
+
+\begin{equation}
+   r^{1/2} dr = (2GM)^{1/2} dt
+\end{equation}
+
+Integrate both sides from $0$ to $r$, and $0$ to $t$
+
+\begin{equation}
+  \frac{2}{3} r ^{\frac{3}{2}} = [2GM]^{\frac{1}{2}}t
+\end{equation}
+
+\begin{equation}
+  r^3 =  \frac{9}{2} GMt^2
+\end{equation}
+
+We now replace $M = \frac{4}{3} \pi \rho r^3$
+
+\begin{equation}
+  r^3 =  \frac{9}{2} G\frac{4}{3} \pi \rho r^3t^2
+\end{equation}
+
+\begin{equation}
+  1 =  6 G \pi \rho t^2
+\end{equation}
+
+
+\begin{equation}
+  \boxed{\rho =  \frac{1}{6G \pi t^2}}
+\end{equation}
+
+
+\section*{Problem 2B}
+
+Negative.
+
+ 
+Reason: $\epsilon = \frac{E}{m}$ is the total energy per unit mass. 
+In the background borderline case we had $\epsilon = 0$ 
+(just enough energy to escape to infinity). 
+An overdensity that will eventually stop expanding and collapse because it has slightly more attraction, it is gravitationally bound, so its total energy is negative. 
+You can see this from the energy equation: at turnaround $\dot{r} = 0$ so
+
+\begin{equation}
+    \epsilon = -\frac{GM}{r_{\rm max}} < 0,
+\end{equation}
+
+hence $\epsilon$ must be negative for a region that will turn around and collapse into a halo.
+
+
+
+\section*{Problem 2C}
+
+Start from the energy equation for a spherical shell and assume the shell is bound so
+\(\varepsilon<0\). Write \(\varepsilon=-|\varepsilon|\). Then
+\[
+\frac{1}{2}\dot r^{2}-\frac{GM}{r}=\varepsilon=-|\varepsilon|
+\quad\Longrightarrow\quad
+\dot r^{2}=\frac{2GM}{r}-2|\varepsilon|.
+\]
+
+Define the constant
+\[
+A\equiv\frac{GM}{2|\varepsilon|}
+\]
+and introduce the parameter \(\eta\) by the ansatz
+\[
+r(\eta)=A(1-\cos\eta).
+\]
+Differentiate with respect to \(\eta\):
+\[
+\frac{dr}{d\eta}=A\sin\eta.
+\]
+
+Using \(GM=2|\varepsilon|A\) and \(r=A(1-\cos\eta)\) in the expression for \(\dot r^{2}\) gives
+\[
+\dot r^{2}=2|\varepsilon|\left(\frac{2A}{r}-1\right)
+=2|\varepsilon|\frac{1+\cos\eta}{1-\cos\eta}.
+\]
+Hence
+\[
+\dot r=\sqrt{2|\varepsilon|}\,\sqrt{\frac{1+\cos\eta}{1-\cos\eta}}.
+\]
+
+Now compute \(dt/d\eta\) from \(dt/d\eta=(dr/d\eta)/\dot r\):
+\[
+\frac{dt}{d\eta}
+=\frac{A\sin\eta}{\sqrt{2|\varepsilon|}\,\sqrt{\dfrac{1+\cos\eta}{1-\cos\eta}}}
+=\frac{A}{\sqrt{2|\varepsilon|}}\; \sin\eta\sqrt{\frac{1-\cos\eta}{1+\cos\eta}}.
+\]
+Using the trigonometric identity
+\(\sin\eta\sqrt{\dfrac{1-\cos\eta}{1+\cos\eta}}=1-\cos\eta\),
+we obtain
+\[
+\frac{dt}{d\eta}=\frac{A(1-\cos\eta)}{\sqrt{2|\varepsilon|}}.
+\]
+
+Integrate from \(\eta=0\) (where \(t=0\)) to general \(\eta\):
+\[
+t(\eta)=\frac{A}{\sqrt{2|\varepsilon|}}(\eta-\sin\eta).
+\]
+
+Finally substitute back \(A=GM/(2|\varepsilon|)\) to express the solution in terms of \(GM\) and \(|\varepsilon|\):
+\[
+\boxed{%
+r(\eta)=\frac{GM}{2|\varepsilon|}\,(1-\cos\eta),\qquad
+t(\eta)=\frac{GM}{(2|\varepsilon|)^{3/2}}\,(\eta-\sin\eta)\,.}
+\]
+
+These are the standard cycloidal parametric equations for a bound shell with \(r(0)=0,\;t(0)=0\),
+turnaround at \(\eta=\pi\) (where \(r_{\max}=2A=GM/|\varepsilon|\)), and recollapse at \(\eta=2\pi\).
+
