@@ -20,3 +20,19 @@ r_silk_comoving = (1 + z)**(-0.5) * np.sqrt(
 r_silk_comoving = r_silk_comoving.to(u.Mpc)
 
 print(f"Silk damping scale (comoving): {r_silk_comoving:.2f}")
+
+
+
+
+
+# Comoving angular diameter distance to z_dec
+D_M = cosmo.comoving_distance(z)
+
+# Angular scale (radians)
+theta_silk = (r_silk_comoving / D_M) * u.rad  # <-- explicitly assign units
+
+# Convert to degrees and arcminutes
+theta_deg = theta_silk.to(u.deg)
+theta_arcmin = theta_silk.to(u.arcmin)
+
+print(f"Angular Silk scale: {theta_deg:.4f} ({theta_arcmin:.2f})")
